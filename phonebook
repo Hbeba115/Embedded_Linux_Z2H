@@ -1,0 +1,40 @@
+#! /usr/bin/ksh
+state=1
+while [ $state -eq 1 ]
+do
+echo "MENU"
+echo "1. Insert new contact"
+echo "2. View all contacts"
+echo "3. Search by contact name"
+echo "4. Delete all records"
+echo "5. Delete one record"
+echo "0. Exit"
+echo "enter your choice: " 
+read x
+case $x in
+1) echo "-------------------------"
+echo "enter name: "
+read name
+echo "enter phone "
+read phone
+echo $name $phone >> phoneBookDB.txt
+echo "----------------------------";;
+2) echo "--------------------------" 
+cat phoneBookDB.txt
+echo "-----------------------------";;
+3) echo "----------------------------"
+echo "enter contact name to get the number: "
+read naame
+echo "search results"
+cat phoneBookDB.txt | grep $naame
+echo "--------------------------------";;
+4) echo "-------------------------------"
+echo " " > phoneBookDB.txt;;
+5) echo "------------------------------"
+echo "enter name you want to delete: "
+read namee
+echo " " > phoneBookDB.txt | grep $namee
+sed 's/\(habiba+\)/\1   /' phoneBookDB.txt;;
+0) exit;;
+esac
+done
