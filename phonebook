@@ -34,7 +34,6 @@ echo " " > phoneBookDB.txt;;
 echo "enter name you want to delete: "
 read namee
 echo " " > phoneBookDB.txt | grep $namee
-sed 's/\(habiba+\)/\1   /' phoneBookDB.txt;;
 0) exit;;
 esac
 done
